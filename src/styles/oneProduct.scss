@@ -1,0 +1,175 @@
+.oneProduct{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    img:hover{
+        cursor: pointer;
+    }
+    .gallery{
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 15%;
+        max-height: 100vh;
+        img:hover{
+            cursor: pointer;
+        }
+        .pictr{
+            width:79px;
+            height:80px;
+        }
+    }
+    .none{
+        display: none;
+    }
+    .modalGallery{
+        position: absolute;
+        z-index: 10;
+        background-color: white;
+        width: 1200px;
+        .close{
+            background-image: url('../pictures/close-b.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 50px 50px;
+            height: 50px;
+            margin: 0;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .galleryCart{
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            max-height: 90vh;
+            justify-content: center;
+            img{
+                margin-left: 25px;
+                margin-right: 25px;
+                max-width: 100%;
+            }
+            .arrows{
+                width:25px;
+                padding-top: 25%;
+                font-size: xx-large;
+                font-weight: 900;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+       
+    }
+    .mainPicture{
+        width: 50%;
+        height: 611px;
+        overflow: hidden;
+        position: relative;
+        img{
+            max-width: 100%;
+        }
+        .opac{
+            opacity: 0.5
+        }
+        .stock{
+            position: absolute;
+            top:40%;
+            left: 25.42%;
+            z-index: 9;
+            display: block;
+            p{
+                font-size: 24px;
+                line-height: 160%;
+                color: #8D8F9A
+            }
+        }
+        
+    }
+    .about{
+        width: 30%;
+        .name{
+            font-weight: 600;
+            font-size: 30px;
+            line-height: 27px;
+        }
+        .brand{
+            font-size: 30px;
+            line-height: 27px;
+        }
+        .price{
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 18px;
+        }
+        .cost{
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 18px;
+        }
+    }
+    .atributes{
+        .name{
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 18px;
+        }
+        .sizeCont{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            .size{
+                width:63px;
+                height: 45px;
+                border: 1px solid #1D1F22;
+                text-align: center;
+                line-height: 45px;
+                color: #292929;
+                margin-right: 10px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            .color{
+                width:63px;
+                height: 63px;
+                border-radius: 50%;
+                border: 1px solid #1D1F22;
+                margin-right: 10px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            .isActive{
+                background-color: #1D1F22;
+                color: #FFFFFF;
+            }
+            .isActiveColor{
+                border: 4px solid #1D1F22;
+            }
+        }
+    }
+    button{
+        width: 292px;
+        height: 52px;
+        background: #5ECE7B;
+        color:white;
+        border: none;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 120%;
+        margin-bottom: 40px;
+        &:hover{
+            cursor: pointer;
+    
+        }
+        &:active{
+            width: 280px;
+            height: 48px; 
+        }
+    }
+    .description{
+        font-size: 16px;
+        line-height: 159.96%;
+    }
+}
