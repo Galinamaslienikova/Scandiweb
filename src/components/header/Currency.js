@@ -1,7 +1,7 @@
 import React from "react";
 import { getCurrencies } from "../../api/query";
 
-export default class Currency extends React.Component{
+export default class Currency extends React.PureComponent{
     constructor(props){
         super(props)
         this.state={
@@ -16,7 +16,7 @@ export default class Currency extends React.Component{
         }))
     }
     render(){
-        let res=this.state.currency.length<0?'':this.state.currency.map((item)=>{
+        const res=this.state.currency.length<0?'':this.state.currency.map((item)=>{
             return <li onClick={()=>{this.props.onclick(item.symbol,item.label)}} key={item.label}>{item.symbol} {item.label}</li>
         })
         return(

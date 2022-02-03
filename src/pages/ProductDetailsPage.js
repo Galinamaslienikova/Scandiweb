@@ -5,7 +5,7 @@ import HeaderTest from "../components/header/HeaderTest";
 import { getCounts } from "../components/helpers";
 
 import OneProduct from "../components/OneProduct";
-export class ProductDetailsPage extends React.Component{
+export class ProductDetailsPage extends React.PureComponent{
     constructor(props){
         super(props)
         this.state={
@@ -28,14 +28,15 @@ export class ProductDetailsPage extends React.Component{
         })
     }
     render(){
+        const{currency,changeCurrensy}=this.props
         return(
             <div className="container">
-                    <HeaderTest renderParent={this.rendParent}  counts={this.state.counts} symbol={this.props.currency.symbol} currency={this.props.currency.label}  changeCurrensy={this.props.changeCurrensy}/>
+                    <HeaderTest renderParent={this.rendParent}  counts={this.state.counts} symbol={currency.symbol} currency={currency.label}  changeCurrensy={changeCurrensy}/>
                 {this.state.product?<OneProduct 
                     rendParent={this.rendParent}
                     id={this.props.match.params.id}
-                    label={this.props.currency.label}
-                    symbol={this.props.currency.symbol}
+                    label={currency.label}
+                    symbol={currency.symbol}
                     gallery={this.state.product.gallery} 
                     name={this.state.product.name} 
                     brand={this.state.product.brand} 

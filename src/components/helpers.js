@@ -1,6 +1,6 @@
 
 export const adToCart=(id,name,arrAtr,price)=>{
-    let arr=JSON.parse(localStorage.getItem('myCart'))
+    const arr=JSON.parse(localStorage.getItem('myCart'))
     if(arr===null){
         localStorage.setItem("myCart",JSON.stringify([{
                 'id':id,
@@ -14,7 +14,7 @@ export const adToCart=(id,name,arrAtr,price)=>{
         let same=true
         arr.forEach((elm)=>{
             if(elm.id===id){
-                let a=elm.attributes.filter((item,index)=>{
+                const a=elm.attributes.filter((item,index)=>{
                return Object.values(item)[0]===Object.values(arrAtr[index])[0]} ) 
              if(a.length===arrAtr.length){
                  same=false
@@ -36,10 +36,10 @@ export const adToCart=(id,name,arrAtr,price)=>{
 }
 
 export const minusFromCart=(id,name,arrAtr)=>{
-    let arr=JSON.parse(localStorage.getItem('myCart'))
+    const arr=JSON.parse(localStorage.getItem('myCart'))
     arr.forEach((elm,index)=>{
         if(elm.id===id){
-            let a=elm.attributes.filter((item,index)=>{
+            const a=elm.attributes.filter((item,index)=>{
            return Object.values(item)[0]===Object.values(arrAtr[index])[0]} ) 
          if(a.length===arrAtr.length){
              elm.counts=elm.counts*1-1
@@ -54,7 +54,7 @@ export const minusFromCart=(id,name,arrAtr)=>{
 }
 
 export const  changeActive=(name,value,active)=>{
-    let number=active.findIndex((item)=>{
+    const number=active.findIndex((item)=>{
         return item[name]
     })
     let arr=active
@@ -63,14 +63,14 @@ export const  changeActive=(name,value,active)=>{
 }
 
 export const changePicture=(arr,picture)=>{
-    let num=arr.findIndex((item)=>{
+    const num=arr.findIndex((item)=>{
         return item===picture
     })
     return num
 }
 
 export const getCounts=()=>{
-    let arr=JSON.parse(localStorage.getItem("myCart"))
+    const arr=JSON.parse(localStorage.getItem("myCart"))
     let count=0
     if (arr){
       arr.forEach((item)=>{

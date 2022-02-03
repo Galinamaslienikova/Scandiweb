@@ -45,6 +45,8 @@
         font-size: 16px;
         line-height: 160%;
         font-style: normal;
+        margin-top: 52px;
+        margin-bottom: 35px;
     }
     .cartPrice{
         position: relative;
@@ -144,7 +146,8 @@
         left:60%;
         background-color: white;
         z-index: 11;
-        font-size: x-small;  
+        font-size: x-small; 
+        padding: 8px 16px 20px 8px; 
         .smallCartTitle{
             font-size: 16px;
             line-height: 160%;
@@ -172,9 +175,11 @@
         }
         .cartPage{
             .cartProduct{
+                border-top: none;
                 .aboutPr{
                     width: 50%;
                     flex-direction: column;
+                    justify-content: space-between;
                     .divCont{
                         .brand,.nameP,.cost{
                             font-weight: 300;

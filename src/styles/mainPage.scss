@@ -20,10 +20,8 @@
     margin-top: 80px;
   }
   .mainPage{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
    
     .producrMain{
         padding: 15px;
@@ -47,10 +45,14 @@
                     cursor: pointer;
                 }
             }
-            img{
+            .imgDiv{
                 width: 338px;
                 height: 346px;
+                overflow: hidden;
                 margin-bottom: 21px;
+                img{
+                    width: 100%;
+                }
             }
             .opac{
                 opacity: 0.5
@@ -59,7 +61,7 @@
                 position: absolute;
                 top:40%;
                 left: 25.42%;
-                z-index: 10;
+                z-index: 9;
                 display: block;
                 p{
                     font-size: 24px;

@@ -7,7 +7,7 @@ import { getCounts } from "../components/helpers";
 import ProductMain from "../components/ProductMain";
 
 
-export class CategoryPage extends React.Component{
+export class CategoryPage extends React.PureComponent{
     constructor(props){
         super(props)
         this.state={
@@ -39,15 +39,16 @@ export class CategoryPage extends React.Component{
         })
     }
     render(){
-        let products=this.state.activCategory?this.state.activCategory.products.map((item)=>{
-            let carrent=item.prices.filter((label)=>{
-                return label.currency.label===this.props.currency.label
+        const{currency,changeCurrensy}=this.props
+        const products=this.state.activCategory?this.state.activCategory.products.map((item)=>{
+            const carrent=item.prices.filter((label)=>{
+                return label.currency.label===currency.label
             })
-            return <ProductMain category={item.category} id={item.id} instock={item.inStock} currency={this.props.currency.label} key={item.id} name={item.name} image={item.gallery[0]} price={carrent[0].amount}/>
+            return <ProductMain category={item.category} id={item.id} instock={item.inStock} currency={currency.label} key={item.id} name={item.name} image={item.gallery[0]} price={carrent[0].amount}/>
         }):""
         return(
             <div className="container">
-                <HeaderTest counts={this.state.counts} activCategory={this.state.activCategory} changeCategory={this.changeCategory} symbol={this.props.currency.symbol} currency={this.props.currency.label}  changeCurrensy={this.props.changeCurrensy} />
+                <HeaderTest counts={this.state.counts} activCategory={this.state.activCategory} changeCategory={this.changeCategory} symbol={currency.symbol} currency={currency.label}  changeCurrensy={changeCurrensy} />
                 <p className="categoryName">{this.state.cats.length<1?"":this.state.activCategory.name.toUpperCase()}</p>
                 <div className="mainPage">
                     {products}

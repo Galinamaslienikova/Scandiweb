@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { getCats } from "../../api/query";
 
-export default class Categories extends React.Component{
+export default class Categories extends React.PureComponent{
     constructor(props){
         super(props)
         this.state={
@@ -17,8 +17,9 @@ export default class Categories extends React.Component{
         }))
     }
     render(){
-        let categories=this.state.cats.length<1?"":this.state.cats.map((item,index)=>{
-            return <Link className={this.props.activCategory?this.props.activCategory.name===item.name?'isActive':'':""} key={index} onClick={this.props.changeCategory?()=>this.props.changeCategory(item.name):()=>{}}  to={`/cats/${item.name}`}>
+        const{activCategory,changeCategory}=this.props
+        const categories=this.state.cats.length<1?"":this.state.cats.map((item,index)=>{
+            return <Link className={activCategory?activCategory.name===item.name?'isActive':'':""} key={index} onClick={this.props.changeCategory?()=>changeCategory(item.name):()=>{}}  to={`/cats/${item.name}`}>
                          <p>{item.name.toUpperCase()}</p>
                     </Link>
         })

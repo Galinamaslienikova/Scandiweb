@@ -1,6 +1,6 @@
 import React from "react";
 import { changePicture } from "./helpers";
-export default class PictureCarusel extends React.Component{
+export default class PictureCarusel extends React.PureComponent{
     constructor(props){
         super(props)
         this.state={
@@ -16,7 +16,7 @@ export default class PictureCarusel extends React.Component{
 
     }
     changePictureLeft=()=>{
-        let num=changePicture(this.state.gallery,this.state.picture)
+        const num=changePicture(this.state.gallery,this.state.picture)
          if(num<=0){
              this.setState({
                  picture:this.state.gallery[this.state.gallery.length-1]
@@ -28,7 +28,7 @@ export default class PictureCarusel extends React.Component{
          }
      }
      changePictureRight=()=>{
-        let num=changePicture(this.state.gallery,this.state.picture)
+        const num=changePicture(this.state.gallery,this.state.picture)
          if(num>=this.state.gallery.length-1){
              this.setState({
                  picture:this.state.gallery[0]
